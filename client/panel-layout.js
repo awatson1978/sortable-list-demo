@@ -28,3 +28,22 @@ UI.body.rendered = function () {
     }
   });
 };
+
+
+Session.set("resize", null);
+Meteor.startup(function () {
+  $(window).resize(function(evt) {
+    Session.set("resize", new Date());
+  });
+});
+
+UI.body.resized = function(){
+  var width = $(window).width();
+  var height = $(window).height();
+
+  var panelWidth = (width - 1200) * 0.5;
+  $('#eastPanel').width(panelWidth);
+  $('#westPanel').width(panelWidth);
+
+  return Session.get('resize');
+};

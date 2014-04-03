@@ -6,3 +6,8 @@
 standard-app-packages
 autopublish
 insecure
+bootstrap-3
+less
+browser-policy
+browser-policy-framing
+jquery
